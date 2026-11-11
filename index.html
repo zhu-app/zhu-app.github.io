@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>朱伟榔 · 全栈开发</title>
+<meta name="description" content="朱伟榔，全栈开发。用 Vue / React + Python / Node 把想法做成能用的产品，专注 AI 应用的工程落地。">
+<meta property="og:title" content="朱伟榔 · 全栈开发">
+<meta property="og:description" content="用 Vue / React + Python / Node 把想法做成能用的产品。">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236ee7ff'/%3E%3Cstop offset='1' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='50' font-size='56' font-family='PingFang SC,Microsoft YaHei,sans-serif' text-anchor='middle' dominant-baseline='central' fill='%2306131c'%3E朱%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#080b12;--text:#eef2f8;--muted:#98a5ba;--stroke:rgba(255,255,255,.11);--accent:#6ee7ff;--accent2:#a78bfa}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;padding:56px 20px 40px;overflow-x:hidden;
+-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center}
+.blob{position:fixed;border-radius:50%;filter:blur(100px);opacity:.42;pointer-events:none;z-index:0;animation:float 16s ease-in-out infinite}
+.b1{width:460px;height:460px;background:#1d4ed8;top:-160px;left:-140px}
+.b2{width:400px;height:400px;background:#7c3aed;bottom:-180px;right:-140px;animation-delay:-6s}
+.b3{width:320px;height:320px;background:#0e7490;top:44%;right:6%;animation-delay:-11s;opacity:.3}
+@keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(28px,-38px,0) scale(1.12)}}
+.wrap{position:relative;z-index:1;width:100%;max-width:460px}
+.wrap > *{animation:rise .85s cubic-bezier(.2,.8,.2,1) both}
+.wrap > *:nth-child(2){animation-delay:.16s}
+.wrap > *:nth-child(3){animation-delay:.26s}
+.wrap > *:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.card{background:rgba(255,255,255,.055);border:1px solid var(--stroke);border-radius:28px;padding:40px 30px 30px;
+backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);
+box-shadow:0 30px 90px -24px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.08);text-align:center}
+.avatar{width:104px;height:104px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;position:relative;
+font-size:42px;font-weight:500;color:#04121a;background:linear-gradient(135deg,var(--accent),var(--accent2));
+box-shadow:0 0 0 1px rgba(255,255,255,.28),0 14px 36px -10px rgba(110,231,255,.55)}
+.avatar::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(255,255,255,.22);animation:spin 24s linear infinite}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{font-size:30px;font-weight:600;letter-spacing:1px}
+.pinyin{font-size:12px;letter-spacing:4px;color:var(--accent);margin-top:8px;opacity:.85}
+.role{margin-top:16px;font-size:14px;color:var(--muted)}
+.role b{color:#dfe8f6;font-weight:500}
+.role span{display:inline-block;margin:0 6px;color:#3c4a60}
+.divider{height:1px;margin:26px 0;background:linear-gradient(90deg,transparent,var(--stroke),transparent)}
+.bio{font-size:14px;line-height:1.95;color:#c2cee0;text-align:left}
+.bio + .bio{margin-top:12px}
+.bio em{font-style:normal;color:#e9f2ff;border-bottom:1px solid rgba(110,231,255,.35)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{flex:1 1 0;min-width:104px;display:flex;align-items:center;justify-content:center;gap:7px;
+padding:12px 10px;border-radius:14px;font-size:13.5px;font-weight:500;color:#e8f1fb;text-decoration:none;
+font-family:inherit;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+transition:transform .25s,background .25s,box-shadow .25s;cursor:pointer}
+.btn:hover{background:rgba(255,255,255,.14);transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(0,0,0,.95)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06131c;border:none;font-weight:600;
+box-shadow:0 14px 30px -14px rgba(110,231,255,.9)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn svg{width:15px;height:15px;flex:none}
+.section{margin-top:34px}
+.sec-head{display:flex;align-items:baseline;gap:10px;margin:0 4px 14px}
+.sec-head h2{font-size:14px;font-weight:600;letter-spacing:1px;color:#dae4f3}
+.sec-head i{font-style:normal;font-size:10.5px;letter-spacing:2px;color:#4d5c74;text-transform:uppercase}
+.sec-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--stroke),transparent)}
+.pcard{display:block;text-decoration:none;color:inherit;padding:16px 18px;border-radius:18px;
+background:rgba(255,255,255,.042);border:1px solid rgba(255,255,255,.09);
+transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.pcard + .pcard{margin-top:10px}
+.pcard::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .35s;
+background:radial-gradient(420px 120px at 12% 0%,rgba(110,231,255,.14),transparent 70%)}
+.pcard:hover{transform:translateY(-3px);border-color:rgba(110,231,255,.34);box-shadow:0 18px 40px -24px rgba(110,231,255,.7)}
+.pcard:hover::before{opacity:1}
+.pcard .row{display:flex;align-items:center;gap:8px}
+.pcard h3{font-size:14.5px;font-weight:600;color:#f0f5fd}
+.pcard .stack{font-size:10.5px;letter-spacing:.5px;color:#5f7c92;padding:2px 8px;border-radius:6px;
+background:rgba(110,231,255,.08);border:1px solid rgba(110,231,255,.14);white-space:nowrap}
+.pcard p{font-size:12.8px;line-height:1.75;color:#94a2b8;margin-top:7px}
+.pcard .arrow{position:absolute;right:16px;top:16px;color:#4a5a72;transition:.3s;font-size:13px}
+.pcard:hover .arrow{color:var(--accent);transform:translate(2px,-2px)}
+.more{display:flex;justify-content:center;margin-top:14px}
+.more a{font-size:12.5px;color:#7f90a8;text-decoration:none;transition:.25s;border-bottom:1px solid transparent;padding-bottom:2px}
+.more a:hover{color:var(--accent);border-color:rgba(110,231,255,.4)}
+.stack-row{display:flex;gap:12px;align-items:flex-start;padding:9px 4px}
+.stack-row + .stack-row{border-top:1px dashed rgba(255,255,255,.07)}
+.stack-row .k{flex:none;width:48px;font-size:11.5px;color:#5c6b83;padding-top:6px;letter-spacing:.5px}
+.stack-row .v{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12px;padding:5px 11px;border-radius:8px;color:#c8d6e8;background:rgba(255,255,255,.055);
+border:1px solid rgba(255,255,255,.09);transition:.25s}
+.chip:hover{color:#eaf6ff;background:rgba(110,231,255,.13);border-color:rgba(110,231,255,.4);transform:translateY(-1px)}
+footer{margin-top:36px;text-align:center;font-size:11.5px;color:#5a6880;line-height:2}
+footer a{color:#7d8ba3;text-decoration:none}
+footer a:hover{color:var(--accent)}
+.dot{margin:0 8px;color:#2f3a4c}
+.toast{position:fixed;left:50%;bottom:36px;transform:translate(-50%,20px);background:rgba(16,22,33,.96);
+border:1px solid var(--stroke);color:#e8f1fb;font-size:13px;padding:10px 22px;border-radius:999px;
+opacity:0;pointer-events:none;transition:.3s;z-index:9;box-shadow:0 16px 40px -16px #000}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:430px){
+body{padding:32px 16px 28px}
+.card{padding:34px 22px 24px;border-radius:22px}
+h1{font-size:26px}
+.avatar{width:92px;height:92px;font-size:38px}
+.btn{flex:1 1 42%;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+<div class="wrap">
+
+<main class="card">
+<!-- 有头像照片就换成：<img src="avatar.jpg" alt="朱伟榔"> -->
+<div class="avatar">朱</div>
+
+<h1>朱伟榔</h1>
+<div class="pinyin">ZHU WEILANG</div>
+
+<p class="role">全栈开发 <span>/</span> <b>Full-Stack Developer</b></p>
+
+<div class="divider"></div>
+
+<p class="bio">你好，我是朱伟榔。喜欢一个人把一个想法从设计稿做到上线——<em>前端、后端、数据库、部署</em>，能自己扛下来的部分就不麻烦别人。</p>
+<p class="bio">最近几年把主要精力放在 AI 应用的工程落地上：流式对话、RAG 检索、Agent 工具调用。享受把模型能力变成真正有人用的功能。</p>
+<p class="bio">写代码之外，会为一个像素的对齐纠结很久，也相信<em>克制比堆料更难</em>。</p>
+
+<div class="links" id="links"></div>
+</main>
+
+<section class="section reveal" id="projects">
+<div class="sec-head"><h2>精选项目</h2><i>Projects</i><span class="line"></span></div>
+
+<a class="pcard" href="https://github.com/zhu-app/vireo" target="_blank" rel="noopener">
+<span class="arrow">↗</span>
+<div class="row"><h3>Vireo</h3><span class="stack">React · Express</span></div>
+<p>可自部署的多模型 AI 工作台：账号体系、流式对话、知识库检索、联网搜索与用量管理。</p>
+</a>
+
+<a class="pcard" href="https://github.com/zhu-app/ai-chat-assistant" target="_blank" rel="noopener">
+<span class="arrow">↗</span>
+<div class="row"><h3>知聊</h3><span class="stack">Vue 3 · FastAPI</span></div>
+<p>全栈 AI 聊天助手：SSE 流式输出、RAG 知识库、多 Agent 协作与 Docker 部署。</p>
+</a>
+
+<a class="pcard" href="https://github.com/zhu-app/shanhai-demon-tide" target="_blank" rel="noopener">
+<span class="arrow">↗</span>
+<div class="row"><h3>山海妖潮</h3><span class="stack">Canvas · 零依赖</span></div>
+<p>中国神话主题的纯前端塔防游戏，四大关卡、多分支塔升级，一个人写完所有逻辑与美术。</p>
+</a>
+<a class="pcard" href="https://github.com/zhu-app/seat-reservation-agent" target="_blank" rel="noopener">
+<span class="arrow">↗</span>
+<div class="row"><h3>座位预约 Agent</h3><span class="stack">DeepSeek · Tools</span></div>
+<p>基于 function calling 的图书馆选座助手：选座地图、改期、签到与违约信用管理。</p>
+</a>
+
+<a class="pcard" href="https://github.com/zhu-app/book-crawler-analytics" target="_blank" rel="noopener">
+<span class="arrow">↗</span>
+<div class="row"><h3>数据采集与看板</h3><span class="stack">爬虫 · MySQL</span></div>
+<p>从爬虫采集、MySQL 存储到可视化展示的完整数据流水线，一条链路跑通。</p>
+</a>
+
+<a class="pcard" href="https://github.com/zhu-app/photo-gallery" target="_blank" rel="noopener">
+<span class="arrow">↗</span>
+<div class="row"><h3>云相册</h3><span class="stack">Django · 原生 JS</span></div>
+<p>个人相册系统：多图拖拽上传、标签分类、滤镜、回收站与统计仪表盘。</p>
+</a>
+
+<div class="more">
+<a href="https://github.com/zhu-app?tab=repositories" target="_blank" rel="noopener">查看全部仓库 →</a>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="sec-head"><h2>技术栈</h2><i>Stack</i><span class="line"></span></div>
+
+<div class="stack-row">
+<span class="k">前端</span>
+<span class="v">
+<span class="chip">Vue 3</span><span class="chip">React</span>
+<span class="chip">TypeScript</span><span class="chip">Tailwind</span>
+<span class="chip">Canvas</span>
+</span>
+</div>
+<div class="stack-row">
+<span class="k">后端</span>
+<span class="v">
+<span class="chip">Python</span><span class="chip">FastAPI</span>
+<span class="chip">Flask</span><span class="chip">Django</span>
+<span class="chip">Node.js</span><span class="chip">Express</span>
+</span>
+</div>
+<div class="stack-row">
+<span class="k">数据</span>
+<span class="v">
+<span class="chip">MySQL</span><span class="chip">Redis</span>
+<span class="chip">FAISS</span><span class="chip">ChromaDB</span>
+</span>
+</div>
+<div class="stack-row">
+<span class="k">AI</span>
+<span class="v">
+<span class="chip">LLM 应用</span><span class="chip">RAG</span>
+<span class="chip">Agent</span><span class="chip">流式输出</span>
+</span>
+</div>
+<div class="stack-row">
+<span class="k">工程</span>
+<span class="v">
+<span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Linux</span>
+</span>
+</div>
+</section>
+
+<footer class="reveal">
+<div>
+<a href="https://github.com/zhu-app" target="_blank" rel="noopener">GitHub</a>
+<span class="dot">·</span>
+<a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">回到顶部</a>
+</div>
+<div>© 2026 朱伟榔 · 保持好奇</div>
+</footer>
+</div>
+
+<div class="toast" id="toast">微信号已复制</div>
+
+<script>
+/* ========= 想改联系方式，只改这里 ========= */
+const CONFIG = {
+github: "https://github.com/zhu-app",
+email: "",      // 填邮箱才会出现「发邮件」按钮
+wechat: ""      // 填微信号才会出现「复制微信」按钮
+};
+
+const icons = {
+github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.4-3.88-1.4-.53-1.35-1.3-1.71-1.3-1.71-1.06-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.5 11.5 0 0 0 12 .5Z"/></svg>',
+arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+wechat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 4C4.9 4 2 6.4 2 9.4c0 1.7.9 3.2 2.4 4.2L4 16l2.5-1.3c.6.2 1.3.3 2 .3"/><path d="M22 15.2c0-2.6-2.5-4.7-5.5-4.7S11 12.6 11 15.2s2.5 4.7 5.5 4.7c.6 0 1.2-.1 1.7-.3L20.7 21l-.5-1.8c1.1-.9 1.8-2.3 1.8-4Z"/></svg>'
+};
+
+const links = document.getElementById('links');
+function addBtn(html, attrs, primary) {
+  const el = attrs.href ? document.createElement('a') : document.createElement('button');
+  el.className = 'btn' + (primary ? ' primary' : '');
+  el.innerHTML = html;
+  Object.keys(attrs).forEach(function (k) { el.setAttribute(k, attrs[k]); });
+  links.appendChild(el);
+  return el;
+}
+
+addBtn(icons.github + 'GitHub', { href: CONFIG.github, target: '_blank', rel: 'noopener' }, true);
+addBtn(icons.arrow + '查看项目', { href: '#projects' });
+if (CONFIG.email) addBtn(icons.mail + '发邮件', { href: 'mailto:' + CONFIG.email });
+if (CONFIG.wechat) addBtn(icons.wechat + '复制微信', { type: 'button', id: 'copyBtn' });
+
+const copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+  const toast = document.getElementById('toast');
+  copyBtn.addEventListener('click', function () {
+    const t = CONFIG.wechat;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(t).catch(function () {});
+    }
+    toast.textContent = '微信号已复制：' + t;
+    toast.classList.add('show');
+    clearTimeout(window._tt);
+    window._tt = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+  });
+}
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+} else {
+  document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+}
+</script>
+</body>
+</html>
