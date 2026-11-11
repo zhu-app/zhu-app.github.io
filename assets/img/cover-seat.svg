@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(135 .5 .5)">
+<stop offset="0" stop-color="#60a5fa" stop-opacity=".55"/>
+<stop offset="1" stop-color="#6ee7ff" stop-opacity=".30"/>
+</linearGradient>
+<radialGradient id="glow" cx=".2" cy="0" r=".9">
+<stop offset="0" stop-color="#60a5fa" stop-opacity=".55"/>
+<stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+<stop offset=".45" stop-color="#0a0e16" stop-opacity="0"/>
+<stop offset="1" stop-color="#0a0e16" stop-opacity=".9"/>
+</linearGradient>
+</defs>
+<rect width="800" height="500" fill="#0a0e16"/>
+<rect width="800" height="500" fill="url(#g)"/>
+<rect width="800" height="500" fill="url(#glow)"/>
+<rect x="470" y="150" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="522" y="150" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="574" y="150" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="626" y="150" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="678" y="150" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="730" y="150" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="470" y="202" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="522" y="202" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="574" y="202" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="626" y="202" width="34" height="34" rx="8" fill="#6ee7ff" fill-opacity=".85" stroke="#6ee7ff" stroke-opacity=".9"/><rect x="678" y="202" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="730" y="202" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="470" y="254" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="522" y="254" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="574" y="254" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="626" y="254" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="678" y="254" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="730" y="254" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="470" y="306" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="522" y="306" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="574" y="306" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="626" y="306" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="678" y="306" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="730" y="306" width="34" height="34" rx="8" fill="#eaf6ff" fill-opacity=".12" stroke="#eaf6ff" stroke-opacity=".18"/><rect x="470" y="320" width="190" height="3" fill="#6ee7ff" fill-opacity=".35"/><rect x="470" y="336" width="120" height="3" fill="#6ee7ff" fill-opacity=".2"/>
+<rect width="800" height="500" fill="url(#fade)"/>
+</svg>
